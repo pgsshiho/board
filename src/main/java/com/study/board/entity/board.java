@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Board {
+public class board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +18,10 @@ public class Board {
     private String title;
 
     private String content;
+
+    private String filename;
+
+    private String filepath;
+    private Integer boardNumber;
 
 }
