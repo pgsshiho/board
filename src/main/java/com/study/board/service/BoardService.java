@@ -53,10 +53,13 @@ public class BoardService {
         reorderBoardNumbers();
     }
     private void reorderBoardNumbers() {
+        // ID 순으로 정렬하여 모든 게시글 가져오기
         List<board> boards = boardRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
+
+        // boardNumber를 1부터 시작하도록 재정렬
         for (int i = 0; i < boards.size(); i++) {
-            boards.get(i).setId(i + 1);
-            boardRepository.save(boards.get(i));
+            boards.get(i).setBoardNumber(i + 1); // boardNumber 설정
+            boardRepository.save(boards.get(i)); // 변경 사항 저장
         }
     }
 

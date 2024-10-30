@@ -69,13 +69,14 @@ public class BoardController {
         boardService.boardDelete(id);
         model.addAttribute("message", "글이 삭제되었습니다.");
         model.addAttribute("searchUrl", "/board/list");
-        return "redirect:/board/list";
+        return "redirect:/board/list?page=0";
     }
     @GetMapping("/board/modify/{id}")
     public String boardModify(@PathVariable("id") Integer id, Model model) {
-        model.addAttribute("board",boardService.boardView(id));
-        model.addAttribute("message", "수정되었습니다");
-        return "boardmodify";
+        boardService.boardDelete(id);
+        model.addAttribute("message", "글이 삭제되었습니다.");
+        model.addAttribute("searchUrl", "/board/list?page=0");
+        return "redirect:/board/list?page=0"; // 삭제 후 리스트 첫 페이지로 리디렉션
     }
     @PostMapping("/board/update/{id}")
     public String boardUpdate(@PathVariable("id") Integer id, board board, @RequestParam("file") MultipartFile file) throws Exception {

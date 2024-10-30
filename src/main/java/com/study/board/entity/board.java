@@ -23,5 +23,11 @@ public class board {
 
     private String filepath;
     private Integer boardNumber;
+    public Integer getBoardNumber() {
+        return boardNumber;
+    }
+    public void setBoardNumber(Integer boardNumber) {
+        this.boardNumber = boardNumber;
+    }
 
 }
