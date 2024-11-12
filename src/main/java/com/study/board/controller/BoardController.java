@@ -26,7 +26,7 @@ public class BoardController {
     }
     @PostMapping("/board/writepro")
     public String boardWritePro(board Board, Model model, @RequestParam("file") MultipartFile file) throws Exception{
-        boardService.write(Board, file);
+        boardService.write(Board, file  );
         model.addAttribute("message", "글 작성이 완료되었습니다");
         model.addAttribute("searchUrl", "/board/list");
         return "message";
